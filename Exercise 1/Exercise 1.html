@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+</head>
+<body>
+    <script>
+        const parser = new DOMParser();
+        const xmlString =
+                `<list>
+            <student>
+                <name lang="en">
+                    <first>Ivan</first>
+                    <second>Ivanov</second>
+                </name>
+                <age>35</age>
+                <prof>teacher</prof>
+            </student>
+            <student>
+                <name lang="ru">
+                    <first>Петр</first>
+                    <second>Петров</second>
+                </name>
+                <age>58</age>
+                <prof>driver</prof>
+            </student>
+        </list>`;
+        const xmlDOM = parser.parseFromString(xmlString, 'text/html')
+
+        const student1 = xmlDOM.querySelector('student')
+        const student2 =xmlDOM.querySelector('student').nextElementSibling
+
+        const studentEN = {
+        name : `${student1.querySelector('first').innerText} ${student1.querySelector('second').innerText}`,
+        age : student1.querySelector('age').innerText,
+        prof : student1.querySelector('prof').innerText,
+        lang : student1.querySelector('name').getAttribute('lang')
+        }
+
+        const studentRU = {
+        name : `${student2.querySelector('first').innerText} ${student1.querySelector('second').innerText}`,
+        age : student2.querySelector('age').innerText,
+        prof : student2.querySelector('prof').innerText,
+        lang : student2.querySelector('name').getAttribute('lang')
+        }
+
+        const students = [studentEN , studentRU]
+        console.log(students)
+    </script>
+</body>
+</html>

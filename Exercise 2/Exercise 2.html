@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+</head>
+<body>
+    <script>
+        // Данное выполнение уже соотстветсвует требованиям
+        const parsed = JSON.parse('{\n' +
+            ' "list": [\n' +
+            '  {\n' +
+            '   "name": "Petr",\n' +
+            '   "age": "20",\n' +
+            '   "prof": "mechanic"\n' +
+            '  },\n' +
+            '  {\n' +
+            '   "name": "Vova",\n' +
+            '   "age": "60",\n' +
+            '   "prof": "pilot"\n' +
+            '  }\n' +
+            ' ]\n' +
+            '}');
+        console.log(parsed)
+    //     или же список из объектов:
+        const jsonObj = `{
+    "list": [
+    {"name": "Petr", "age": "20", "prof": "mechanic"},
+    {"name": "Vova", "age": "60", "prof": "pilot"}
+    ]
+}`;
+        const jsonParsed = JSON.parse(jsonObj)
+        jsonData = jsonParsed.list;
+        console.log(jsonData)
+    </script>
+</body>
+</html>
